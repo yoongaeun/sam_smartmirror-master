@@ -1,0 +1,25 @@
+{
+  "name": "sam_example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "sam_example",
+  "main": "main.js",
+  "scripts": {
+    "test": "sam_example",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.8.2"
+  },
+  "dependencies": {
+    "angular": "^1.6.9",
+    "annyang": "^2.6.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "forecast": "^0.3.2",
+    "request": "^2.83.0",
+    "webcamjs": "^1.0.25"
+  }
+}
