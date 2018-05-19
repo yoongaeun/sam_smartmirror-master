@@ -51,6 +51,4 @@
     }
 
     angular.module('myApp').factory('ClockService',clock);
-    //controller에 WeatherService 라는 이름의 서비스로 주입가능
-    //forcast 의 return 값 을 사용가능.
 }());
