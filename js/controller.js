@@ -8,6 +8,7 @@
         GeolocationService,
         MusicService,
         NewsService,
+        CameraService,
         $scope, $interval, $timeout, $sce, $document) {
 
         let _this = this;
@@ -28,17 +29,12 @@
         _this.init = function () {
 
             restCommand();
-            /*let trafficData = function () {
-                var API_DOMAIN = 'http://openapi.its.go.kr';
-                var key = '1523844711801';
-                var NOPOP_LAYERS = [];
-
-                window.onload = init;
-                var map;
-                $scope.init = TrafficService.init();
+            
+            let cameraData = function() {
+                $scope.camdemo = CameraService.init();
+                $scope.savephoto = CameraService.savephoto();
             }
-            trafficData();*/
-
+            
             // 시간
             let clockData = function () {
                 $scope.clock = ClockService.printClock();
