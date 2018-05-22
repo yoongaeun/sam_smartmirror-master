@@ -27,7 +27,6 @@
     <script type="text/javascript" src="http://openapi.its.go.kr/javascript/OpenLayers.Layer.Vworld.js"></script>
     <script type="text/javascript" src="http://openapi.its.go.kr/javascript/openapi.ntic.js"></script>
 
-    <script src="js/webcam.js"></script>
     <script src="js/traffic.js"></script>
     <script src="js/calendar.js"></script>
     <script src="config.js"></script>
@@ -89,11 +88,11 @@
         <br><br><br><br><br><br><br><br><br><br>
 
         <!-- 웹캠 -->
-        <div id="camdemo" style="width: 320px; height: 240px; text-align: center; margin: 0 auto;">{{camdemo}}</div><br>
+        <div id="camdemo" style="width: 320px; height: 240px; text-align: center; margin: 0 auto;"></div><br>
         <div style="text-align:center;">
-            <input type="button" id="savefile" ng-click="savephoto()" value="Save photo" />
+            <input type="button" id="savefile" ng-click="savephoto()" value="Save" />
             <script type="text/jscript" src="js/webcam.js"></script>
-            <script type="text/jscript" src="js/processBase64Image.js"></script><br><br>
+            <script type="text/jscript" src="js/processBase64Image.js"></script><br>
             <img id="preview" src="" width="300" alt="로컬에 있는 이미지가 보여지는 영역">
         </div>
 

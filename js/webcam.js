@@ -1,6 +1,5 @@
 var enabled = false; // A flag to know when start or stop the camera
 var WebCamera = require("webcamjs"); // Use require to add webcamjs
-var remote = require('electron').remote; // Load remote component that contains the dialog dependency
 
 function startwebcam() {
     if (!enabled) { // Start the camera !
@@ -15,7 +14,7 @@ function startwebcam() {
 };
 startwebcam();
 
-function savephoto() {
+/*function savephoto() {
     console.log("Save button clicked");
     if (enabled) {
         WebCamera.snap(function (data_uri) {
@@ -44,4 +43,4 @@ function savephoto() {
     } else {
         console.log("Please enable the camera first to take the snapshot !");
     }
-}
+}*/
