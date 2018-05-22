@@ -8,13 +8,15 @@
         GeolocationService,
         MusicService,
         NewsService,
-        CameraService,
         $scope, $interval, $timeout, $sce, $document) {
 
         let _this = this;
         var command = COMMANDS.ko;
         var DEFAULT_COMMAND_TEXT = command.default;
         var functionService = FUNCTIONSERVICE;
+
+        var fs = require('fs');
+
         $scope.listening = false;
         $scope.complement = command.hi; //안녕 Zele!
         $scope.focus = "default"; //사용가능한 질문이라 말해보세요
@@ -26,15 +28,37 @@
             $scope.interimResult = DEFAULT_COMMAND_TEXT;
         }
 
+        $scope.savephoto = function () {
+            console.log("Save button clicked");
+            WebCamera.snap(function (data_uri) {
+                var now = new Date();
+                var fileName = __dirname + '/UserFaces/' + now.getFullYear() + now.getMonth() + now.getDate() + "_" + now.getHours() + now.getMinutes() + now.getSeconds() + '.png';
+                console.log(fileName);
+
+                var imageBuffer = processBase64Image(data_uri);
+
+                try {
+                    fs.mkdirSync('UserFaces');
+                } catch (e) {
+                    if (e.code != 'EEXIST') throw e; // 존재할경우 패스처리함. 
+                }
+
+                fs.writeFile(fileName, imageBuffer.data, function (err) {
+                    if (err) {
+                        console.log("Cannot save the file : time to cry !");
+                    } else {
+                        console.log("Image saved succesfully");
+                        document.getElementById("preview").setAttribute("src", fileName);
+                    }
+                });
+
+            });
+        }
+
         _this.init = function () {
 
             restCommand();
-            
-            let cameraData = function() {
-                $scope.camdemo = CameraService.init();
-                $scope.savephoto = CameraService.savephoto();
-            }
-            
+
             // 시간
             let clockData = function () {
                 $scope.clock = ClockService.printClock();
@@ -240,6 +264,7 @@
                 });
             }
         }
-    })*/.controller('myCtrl', myCtrl);
+    })*/
+        .controller('myCtrl', myCtrl);
 
 }(window.angular));
