@@ -1,18 +1,30 @@
 var enabled = false; // A flag to know when start or stop the camera
 var WebCamera = require("webcamjs"); // Use require to add webcamjs
 
-function startwebcam() {
-    if (!enabled) { // Start the camera !
-        enabled = true;
-        WebCamera.attach('#camdemo');
-        console.log("The camera has been started");
-    } else { // Disable the camera !
-        enabled = false;
-        WebCamera.reset();
-        console.log("The camera has been disabled");
+(function () {
+    'use strict';
+
+    function startwebcam() {
+        if (!enabled) { // Start the camera !
+            enabled = true;
+            WebCamera.set({
+                width: 320,
+                height: 240
+            });
+            WebCamera.attach('#camdemo');
+            console.log("The camera has been started");
+        } else { // Disable the camera !
+            enabled = false;
+            WebCamera.reset();
+            console.log("The camera has been disabled");
+        }
+
+        return WebCamera;
     }
-};
-startwebcam();
+    angular.module('myApp').factory('WebcamService', startwebcam);
+}());
+
+
 
 /*function savephoto() {
     console.log("Save button clicked");

@@ -8,6 +8,7 @@
         GeolocationService,
         MusicService,
         NewsService,
+        WebcamService,
         $scope, $interval, $timeout, $sce, $document) {
 
         let _this = this;
@@ -58,7 +59,11 @@
         _this.init = function () {
 
             restCommand();
-
+            
+            let webcamData = function() {
+                $scope.camdemo = WebcamService;
+            }
+            
             // 시간
             let clockData = function () {
                 $scope.clock = ClockService.printClock();
